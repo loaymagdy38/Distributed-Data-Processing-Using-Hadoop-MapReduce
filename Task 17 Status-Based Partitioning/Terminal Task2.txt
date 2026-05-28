@@ -1,0 +1,189 @@
+[cloudera@quickstart task2]$ ls -lh /home/cloudera/task2/
+total 28K
+-rw-rw-r-- 1 cloudera cloudera 3.0K May  4 21:52 OrderDriver.java
+-rw-rw-r-- 1 cloudera cloudera 2.1K May  4 21:31 OrderMapper.java
+-rw-rw-r-- 1 cloudera cloudera  529 May  4 21:24 OrderPartitioner.java
+-rw-rw-r-- 1 cloudera cloudera 1.5K May  4 21:34 OrderReducer.java
+drwxrwxr-x 2 cloudera cloudera 4.0K May  4 21:52 out
+-rw-rw-r-- 1 cloudera cloudera 5.9K May  4 21:53 task2.jar
+[cloudera@quickstart task2]$ hdfs dfs -ls /user/cloudera/input/task2/
+Found 1 items
+-rw-r--r--   1 cloudera cloudera 1206173320 2026-05-04 21:20 /user/cloudera/input/task2/orders.txt
+[cloudera@quickstart task2]$ head -5 /home/cloudera/orders_task2.txt
+O0000000001,Completed,3169.19,C47397,2023-08-07
+O0000000002,Pending,4643.24,C19210,2022-10-08
+O0000000003,Processing,1511.99,C36347,2024-02-05
+O0000000004,Pending,778.21,C02408,2024-05-12
+O0000000005,Pending,1886.26,C07479,2024-11-02
+[cloudera@quickstart task2]$ ls -lh /home/cloudera/orders_task2.txt
+-rw-rw-r-- 1 cloudera cloudera 1.2G May  4 21:19 /home/cloudera/orders_task2.txt
+[cloudera@quickstart task2]$ hadoop jar task2.jar OrderDriver hdfs:///user/cloudera/input/task2/orders.txt hdfs:///user/cloudera/output/task2
+[OrderDriver] Deleting existing output: hdfs:///user/cloudera/output/task2
+[OrderDriver] Submitting job ...
+26/05/05 00:01:27 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+26/05/05 00:01:28 INFO input.FileInputFormat: Total input paths to process : 1
+26/05/05 00:01:28 INFO mapreduce.JobSubmitter: number of splits:9
+26/05/05 00:01:28 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1777963651998_0001
+26/05/05 00:01:29 INFO impl.YarnClientImpl: Submitted application application_1777963651998_0001
+26/05/05 00:01:29 INFO mapreduce.Job: The url to track the job: http://quickstart.cloudera:8088/proxy/application_1777963651998_0001/
+26/05/05 00:01:29 INFO mapreduce.Job: Running job: job_1777963651998_0001
+26/05/05 00:01:38 INFO mapreduce.Job: Job job_1777963651998_0001 running in uber mode : false
+26/05/05 00:01:38 INFO mapreduce.Job:  map 0% reduce 0%
+26/05/05 00:02:05 INFO mapreduce.Job:  map 1% reduce 0%
+26/05/05 00:02:08 INFO mapreduce.Job:  map 2% reduce 0%
+26/05/05 00:02:10 INFO mapreduce.Job:  map 4% reduce 0%
+26/05/05 00:02:10 INFO mapreduce.Job:  map 5% reduce 0%
+26/05/05 00:02:12 INFO mapreduce.Job:  map 8% reduce 0%
+26/05/05 00:02:13 INFO mapreduce.Job:  map 10% reduce 0%
+26/05/05 00:02:15 INFO mapreduce.Job:  map 12% reduce 0%
+26/05/05 00:02:16 INFO mapreduce.Job:  map 14% reduce 0%
+26/05/05 00:02:19 INFO mapreduce.Job:  map 16% reduce 0%
+26/05/05 00:02:20 INFO mapreduce.Job:  map 18% reduce 0%
+26/05/05 00:02:22 INFO mapreduce.Job:  map 21% reduce 0%
+26/05/05 00:02:23 INFO mapreduce.Job:  map 23% reduce 0%
+26/05/05 00:02:25 INFO mapreduce.Job:  map 26% reduce 0%
+26/05/05 00:02:26 INFO mapreduce.Job:  map 27% reduce 0%
+26/05/05 00:02:28 INFO mapreduce.Job:  map 28% reduce 0%
+26/05/05 00:02:30 INFO mapreduce.Job:  map 29% reduce 0%
+26/05/05 00:02:33 INFO mapreduce.Job:  map 31% reduce 0%
+26/05/05 00:02:37 INFO mapreduce.Job:  map 33% reduce 0%
+26/05/05 00:02:39 INFO mapreduce.Job:  map 34% reduce 0%
+26/05/05 00:02:43 INFO mapreduce.Job:  map 35% reduce 0%
+26/05/05 00:02:44 INFO mapreduce.Job:  map 36% reduce 0%
+26/05/05 00:02:47 INFO mapreduce.Job:  map 38% reduce 0%
+26/05/05 00:02:50 INFO mapreduce.Job:  map 42% reduce 0%
+26/05/05 00:02:58 INFO mapreduce.Job:  map 44% reduce 0%
+26/05/05 00:03:01 INFO mapreduce.Job:  map 45% reduce 0%
+26/05/05 00:03:18 INFO mapreduce.Job:  map 46% reduce 0%
+26/05/05 00:03:25 INFO mapreduce.Job:  map 47% reduce 0%
+26/05/05 00:03:30 INFO mapreduce.Job:  map 48% reduce 0%
+26/05/05 00:03:35 INFO mapreduce.Job:  map 49% reduce 0%
+26/05/05 00:03:37 INFO mapreduce.Job:  map 50% reduce 0%
+26/05/05 00:03:42 INFO mapreduce.Job:  map 51% reduce 0%
+26/05/05 00:03:45 INFO mapreduce.Job:  map 52% reduce 0%
+26/05/05 00:03:54 INFO mapreduce.Job:  map 53% reduce 0%
+26/05/05 00:03:58 INFO mapreduce.Job:  map 54% reduce 0%
+26/05/05 00:04:06 INFO mapreduce.Job:  map 55% reduce 0%
+26/05/05 00:04:11 INFO mapreduce.Job:  map 56% reduce 0%
+26/05/05 00:04:14 INFO mapreduce.Job:  map 58% reduce 0%
+26/05/05 00:04:17 INFO mapreduce.Job:  map 59% reduce 0%
+26/05/05 00:04:21 INFO mapreduce.Job:  map 61% reduce 0%
+26/05/05 00:04:24 INFO mapreduce.Job:  map 62% reduce 0%
+26/05/05 00:04:27 INFO mapreduce.Job:  map 63% reduce 0%
+26/05/05 00:04:28 INFO mapreduce.Job:  map 64% reduce 0%
+26/05/05 00:04:31 INFO mapreduce.Job:  map 65% reduce 0%
+26/05/05 00:04:32 INFO mapreduce.Job:  map 66% reduce 0%
+26/05/05 00:04:33 INFO mapreduce.Job:  map 67% reduce 0%
+26/05/05 00:05:03 INFO mapreduce.Job:  map 67% reduce 6%
+26/05/05 00:05:05 INFO mapreduce.Job:  map 68% reduce 6%
+26/05/05 00:05:07 INFO mapreduce.Job:  map 69% reduce 6%
+26/05/05 00:05:10 INFO mapreduce.Job:  map 70% reduce 10%
+26/05/05 00:05:11 INFO mapreduce.Job:  map 71% reduce 10%
+26/05/05 00:05:13 INFO mapreduce.Job:  map 72% reduce 13%
+26/05/05 00:05:14 INFO mapreduce.Job:  map 73% reduce 13%
+26/05/05 00:05:16 INFO mapreduce.Job:  map 74% reduce 14%
+26/05/05 00:05:17 INFO mapreduce.Job:  map 75% reduce 14%
+26/05/05 00:05:19 INFO mapreduce.Job:  map 77% reduce 15%
+26/05/05 00:05:22 INFO mapreduce.Job:  map 79% reduce 16%
+26/05/05 00:05:24 INFO mapreduce.Job:  map 80% reduce 16%
+26/05/05 00:05:26 INFO mapreduce.Job:  map 82% reduce 17%
+26/05/05 00:05:29 INFO mapreduce.Job:  map 85% reduce 17%
+26/05/05 00:05:32 INFO mapreduce.Job:  map 88% reduce 17%
+26/05/05 00:05:33 INFO mapreduce.Job:  map 89% reduce 17%
+26/05/05 00:05:35 INFO mapreduce.Job:  map 92% reduce 17%
+26/05/05 00:05:36 INFO mapreduce.Job:  map 100% reduce 17%
+26/05/05 00:05:39 INFO mapreduce.Job:  map 100% reduce 18%
+26/05/05 00:05:43 INFO mapreduce.Job:  map 100% reduce 24%
+26/05/05 00:05:47 INFO mapreduce.Job:  map 100% reduce 34%
+26/05/05 00:05:49 INFO mapreduce.Job:  map 100% reduce 42%
+26/05/05 00:05:52 INFO mapreduce.Job:  map 100% reduce 46%
+26/05/05 00:05:56 INFO mapreduce.Job:  map 100% reduce 52%
+26/05/05 00:05:59 INFO mapreduce.Job:  map 100% reduce 55%
+26/05/05 00:06:00 INFO mapreduce.Job:  map 100% reduce 56%
+26/05/05 00:06:03 INFO mapreduce.Job:  map 100% reduce 68%
+26/05/05 00:06:07 INFO mapreduce.Job:  map 100% reduce 73%
+26/05/05 00:06:08 INFO mapreduce.Job:  map 100% reduce 75%
+26/05/05 00:06:10 INFO mapreduce.Job:  map 100% reduce 81%
+26/05/05 00:06:12 INFO mapreduce.Job:  map 100% reduce 91%
+26/05/05 00:06:14 INFO mapreduce.Job:  map 100% reduce 92%
+26/05/05 00:06:16 INFO mapreduce.Job:  map 100% reduce 95%
+26/05/05 00:06:18 INFO mapreduce.Job:  map 100% reduce 100%
+26/05/05 00:06:19 INFO mapreduce.Job: Job job_1777963651998_0001 completed successfully
+26/05/05 00:06:19 INFO mapreduce.Job: Counters: 53
+	File System Counters
+		FILE: Number of bytes read=1549741173
+		FILE: Number of bytes written=2325971176
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=1206207285
+		HDFS: Number of bytes written=345
+		HDFS: Number of read operations=39
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=8
+	Job Counters 
+		Killed map tasks=1
+		Launched map tasks=9
+		Launched reduce tasks=4
+		Data-local map tasks=9
+		Total time spent by all maps in occupied slots (ms)=1163649
+		Total time spent by all reduces in occupied slots (ms)=321602
+		Total time spent by all map tasks (ms)=1163649
+		Total time spent by all reduce tasks (ms)=321602
+		Total vcore-seconds taken by all map tasks=1163649
+		Total vcore-seconds taken by all reduce tasks=321602
+		Total megabyte-seconds taken by all map tasks=1191576576
+		Total megabyte-seconds taken by all reduce tasks=329320448
+	Map-Reduce Framework
+		Map input records=25057300
+		Map output records=24806909
+		Map output bytes=725201141
+		Map output materialized bytes=774815175
+		Input split bytes=1197
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=4
+		Reduce shuffle bytes=774815175
+		Reduce input records=24806909
+		Reduce output records=4
+		Spilled Records=74420727
+		Shuffled Maps =36
+		Failed Shuffles=0
+		Merged Map outputs=36
+		GC time elapsed (ms)=29180
+		CPU time spent (ms)=271020
+		Physical memory (bytes) snapshot=6582034432
+		Virtual memory (bytes) snapshot=20352950272
+		Total committed heap usage (bytes)=5890375680
+	DataQuality
+		InvalidAmount=84886
+		MalformedLines=82879
+		NegativeAmount=82626
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=1206206088
+	File Output Format Counters 
+		Bytes Written=345
+
+=== Data Quality Counters ===
+Malformed Lines : 82879
+Invalid Amount  : 84886
+Negative Amount : 82626
+Unknown Status  : 0
+[cloudera@quickstart task2]$ hdfs dfs -cat /user/cloudera/output/task2/part-r-00000
+Pending	Count=7438522 | Total=18634948362.12 | Avg=2505.20 | Min=10.00 | Max=5000.00
+[cloudera@quickstart task2]$ hdfs dfs -cat /user/cloudera/output/task2/part-r-00000
+Pending	Count=7438522 | Total=18634948362.12 | Avg=2505.20 | Min=10.00 | Max=5000.00
+[cloudera@quickstart task2]$ hdfs dfs -cat /user/cloudera/output/task2/part-r-00001
+Completed	Count=9926623 | Total=24865831660.64 | Avg=2504.96 | Min=10.00 | Max=5000.00
+[cloudera@quickstart task2]$ hdfs dfs -cat /user/cloudera/output/task2/part-r-00002
+Cancelled	Count=3723010 | Total=9325739005.43 | Avg=2504.89 | Min=10.00 | Max=5000.00
+[cloudera@quickstart task2]$ hdfs dfs -cat /user/cloudera/output/task2/part-r-00003
+Processing	Count=3718754 | Total=9319532849.47 | Avg=2506.09 | Min=10.00 | Max=5000.00
+[cloudera@quickstart task2]$ 
